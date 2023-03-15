@@ -88,7 +88,7 @@
 ```
 
 # style.css
-```html
+```css
 
  
 body {
