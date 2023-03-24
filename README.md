@@ -1,86 +1,84 @@
-# Lab2Web
-<p><b> Nama    :   Afra Nesya Apriyanthi </p>
-<p><b> NIM     :   312110614 </p>
-<p><b> Kelas   :   TI.21.C1 </p>
-<p><b> Mata Kuliah : Pemrograman Web</p>
-<p><b> Tugas Pertemuan 3 </p>
-
-# Tugas
-![gambar 1](gambar/soal.jpeg)
-
-<p>file index.php</p>
-```html
-<!DOCTYPE html>
 <html>
 <head>
-<title>Tugas PHP</title>
+	<title>Afra Nesya Apriyanthi Blog</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<form action="output.php" method="post">
-<table>
-    <tr>
-        <td width="100"> Nama </td>
-        <td> : <input type="text" name="nama" /></td> 
-    </tr>     
-    <tr>
-        <td>Tanggal Lahir </td>
-        <td> : <input type="date" name="tanggal_lahir"></td>
-	</tr>
-    <tr> 
-        <td> Pekerjaan </td>
-        <td> : <input type="radio" name="pekerjaan" value="Karyawan"/>Karyawan
-        <input type="radio" name="pekerjaan" value="PNS"/>PNS
-        <input type="radio" name="pekerjaan" value="Petani"/>Petani
-        <input type="radio" name="pekerjaan" value="Wiraswasta"/>Wiraswasta</td>
-    </tr>	
-    <tr>
-        <td></td>
-        <td> <input type="submit" value="kirim"/> </td>
-    </tr>
-</table>
-</form>
+	<div id="container">
+	<header>
+		<div class="atas">
+		<h1>Afra Nesya Apriyanthi Blog</h1>
+		<p>Belajar pemrograman web, mobile dan desktop lengkap berbahasa indonesia, dari dasar hingga mahir.</p>
+		</div>
+	</header>
+
+	<main>
+	<div class="wrap">
+		<nav class="menu">
+			<ul>
+				<li>
+					<a href="index.html">Home</a>
+				</li>
+				<li>
+					<a href="tutorial.html">Tutorial</a>
+				</li>
+				<li>
+					<a href="#">Kontak</a>
+				</li>
+			</ul>
+		</nav>
+
+		<aside class="sidebar">
+			<div class="widget">
+				<h2>Profil</h2>
+				<img src="img/pp.jpg" width="200px">
+				<p>Nama : Afra Nesya Apriyanthi</p>
+			</div>
+			<div class="widget">
+				<h2>Yuuuk Belajar</h2>
+				<p>Situs ini menyediakan banyak tutorial pemrograman web, mobile & desktop.</a>.</p>
+				<p><script src="js/myscript.js"></script></p>
+			</div>
+		</aside>
+
+		<div class="blog">
+			<div class="conteudo">
+				<div class="post-info">
+					Di Posting Oleh <b>Afra Nesya Apriyanthi</b>
+				</div>
+				<img src="img/belajar-php-dasar.jpg">
+				<h1> Tutorial Belajar PHP Dasar Untuk Pemula </h1>
+				<hr>
+				<p>
+					Ini adalah seri tutorial belajar PHP 7 dasar, semua materi pada seri ini disesuaikan untuk pemula yang ingin memulai perjalanannya sebagai programmer PHP.
+
+					Kita akan mempelajari bahasa pemrograman PHP dari bagiannya yang paling dasar. Mulai dari file PHP, variabel, tipe data, logika, pembahasan tentang fungsi, pembahasan tentang string, array dan lain sebagainya.
+
+					Jika sebelumnya anda pernah belajar bahasa Java, C++, atau bahasa pemrograman yang lainnya, mempelajari bahasa pemrograman PHP akan lebih mudah karena ia masih memiliki beberapa struktur yang sama.
+
+					Akan tetapi jika PHP adalah bahasa pemrograman yang pertama kali anda pelajari, anda tidak perlu khawatir. Dengan mengikuti tutorial PHP ini, insyaallah anda akan bisa menguasainya dengan mudah.
+				</p>				
+				<a href="tutorial.html" class="continue-lendo">Selengkapnya →</a>
+			</div>
+			<div class="conteudo">
+				<div class="post-info">
+					Di Posting Oleh <b>Afra Nesya Apriyanthi</b>
+				</div>
+				<img src="img/membuat-dan-menangani-form-data.jpg">
+				<h1> PHP: Membuat Dan Menangani Form </h1>
+				<hr>
+				<p>
+					Ini adalah seri Tutorial PHP yang kedua. Kita telah membahas Tutorial PHP Tingkat Dasar, dan juga Tingkat Menengah. Pada seri lanjutan ini, kita akan mempelajari bahasa pemrograman PHP untuk membangun sebuah web dinamis.
+				</p>				
+				<a href="#" class="continue-lendo">Selengkapnya →</a>
+			</div>
+		</div>
+	</div>
+	</main>
+	<div class="clear">	</div>
+	<div class="footer">
+		Copyright © First -2023. Blog Creative ?with ❤ - Proudly powered by Afra Nesya Apriyanthi
+	</div>
+	</div>
 </body>
 </html>
-```
-
-<p>lalu buat output.php</p>
-
-```html
-<title> Output </title>
-<?php
-    
-    $tanggal_lahir = new DateTime($_POST['tanggal_lahir']);
-    $sekarang = new DateTime("today");
-    if ($tanggal_lahir > $sekarang) { 
-    $thn = "0";
-    $bln = "0";
-    $tgl = "0";
-    }
-    $thn = $sekarang->diff($tanggal_lahir)->y;
-    $bln = $sekarang->diff($tanggal_lahir)->m;
-    $tgl = $sekarang->diff($tanggal_lahir)->d;
-
-    echo 'Nama      	:  ' . $_POST['nama'];
-    echo "<br>";
-    echo "Tanggal Lahir : ". $_POST['tanggal_lahir'];
-    echo "<br>";
-    echo "Usia    		: ";
-    echo $thn." tahun ". $bln. " bulan " . $tgl. " hari";
-    echo "<br>";
-    echo "Pekerjaan     : " . $_POST['pekerjaan'];
-    echo "<br>";
-
-
-    $pekerjaan = ($_POST['pekerjaan']);
-    switch ($pekerjaan){
-        case "Karyawan Swasta": echo "Gaji    	 : Rp 4.500.000";break;
-        case "Pegawai Negeri Sipil": echo "Gaji  : Rp 3.000.000";break;
-        case "Wiraswasta": echo "Gaji   		 : Rp 8.000.000";break;
-    }
-?>
-```
-
-Hasil nya seperti ini
-![gambar 2](gambar/hasil.jpg)
-![gambar 3](gambar/hasil1.jpg)
-![gambar 4](gambar/hasil2.jpg)
